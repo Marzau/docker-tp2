@@ -10,8 +10,50 @@ Ce projet Docker couvre la mise en place d'une infrastructure complète comprena
 
 ## Structure du Projet
 
-docker-tp2/ ├── etape1/
- ├── etape2/ │ ├── http/ │ │ ├── Dockerfile │ │ └── default.conf │ ├── script/ │ │ └── Dockerfile │ ├── data/ │ │ ├── Dockerfile │ │ └── init.sql │ └── app/ │ └── test_bdd.php ├── etape3/ │ ├── http/ │ │ ├── Dockerfile │ │ └── default.conf │ ├── script/ │ │ └── Dockerfile │ ├── data/ │ │ ├── Dockerfile │ │ └── init.sql │ └── app/ │ └── wordpress/ │ └── [tous les fichiers WordPress] └── etape4/ ├── http/ │ ├── Dockerfile │ └── default.conf ├── script/ │ └── Dockerfile ├── data/ │ ├── Dockerfile │ └── init.sql ├── app/ │ └── wordpress/ ├── docker-compose.yml └── start-all.sh
+docker-tp2/
+├── etape1/
+│   ├── http/
+│   │   ├── Dockerfile        # Fichier Docker pour configurer NGINX
+│   │   └── default.conf      # Configuration de NGINX
+│   ├── script/
+│   │   └── Dockerfile        # Fichier Docker pour configurer PHP-FPM
+├── etape2/
+│   ├── http/
+│   │   ├── Dockerfile        # Fichier Docker pour configurer NGINX
+│   │   └── default.conf      # Configuration de NGINX
+│   ├── script/
+│   │   └── Dockerfile        # Fichier Docker pour configurer PHP-FPM
+│   ├── data/
+│   │   ├── Dockerfile        # Fichier Docker pour configurer MySQL
+│   │   └── init.sql          # Script SQL d'initialisation de la base de données
+│   ├── app/
+│   │   └── test_bdd.php      # Fichier PHP pour tester la connexion à MySQL
+├── etape3/
+│   ├── http/
+│   │   ├── Dockerfile        # Fichier Docker pour configurer NGINX pour WordPress
+│   │   └── default.conf      # Configuration de NGINX pour WordPress
+│   ├── script/
+│   │   └── Dockerfile        # Fichier Docker pour configurer PHP-FPM
+│   ├── data/
+│   │   ├── Dockerfile        # Fichier Docker pour configurer MySQL
+│   │   └── init.sql          # Script SQL d'initialisation de la base de données
+│   ├── app/
+│   │   └── wordpress/        # Dossier contenant tous les fichiers WordPress
+└── etape4/
+│   ├── http/
+│   │   ├── Dockerfile        # Fichier Docker pour configurer NGINX
+│   │   └── default.conf      # Configuration de NGINX
+│   ├── script/
+│   │   └── Dockerfile        # Fichier Docker pour configurer PHP-FPM
+│   ├── data/
+│   │   ├── Dockerfile        # Fichier Docker pour configurer MySQL
+│   │   └── init.sql          # Script SQL d'initialisation de la base de données
+│   ├── app/
+│   │   └── wordpress/        # Dossier contenant tous les fichiers WordPress
+│   ├── docker-compose.yml    # Fichier Docker Compose pour orchestrer tous les services
+│
+└──  README.md      # Instructions du projet
+
 
 
 ## Étape 1 : Mise en Place de NGINX et PHP-FPM
