@@ -71,8 +71,12 @@ docker-tp2/ ├── etape1/
 
 1. **Construire et Lancer Tous les Services avec Docker Compose : :**
    ```bash
+    curl -o wordpress.tar.gz https://wordpress.org/latest.tar.gz
+    dans létape 3 mkdir -p /app/wordpress
+    tar -xzvf wordpress.tar.gz -C /app/wordpress --strip-components=1
+    (si jamais vous n avez plus le dossier wordpress precedent)
+
     Dans l etape 4 => docker-compose up --build -d ou docker compose up --build -d
     Dans l etape 4 => docker-compose down
-
 
     Accéder à l Interface de WordPress : Visitez http://localhost:8080
