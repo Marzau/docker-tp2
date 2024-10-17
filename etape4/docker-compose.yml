@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  data:
+    image: my-mysql
+    build:
+      context: ./data
+    container_name: data
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: user
+      MYSQL_PASSWORD: userpass
+    ports:
+      - "3306:3306"
+    networks:
+      - my-network
+    volumes:
+      - db_data:/var/lib/mysql
+
+  script:
+    image: my-php
+    build:
+      context: ./script
+    container_name: script
+    volumes:
+      - ./app/wordpress:/app
+    networks:
+      - my-network
+
+  http:
+    image: my-nginx
+    build:
+      context: ./http
+    container_name: http
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./app/wordpress:/app
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
+
+volumes:
+  db_data:
+    driver: local
